@@ -1,1 +1,39 @@
 @import "tailwindcss";
+
+.answerStyling {
+  color: #ffffff;
+  text-align: center;
+  font-weight: 600;
+  padding: 0.75rem 2rem; /* py-3 px-8 */
+  background: linear-gradient(to right, #3754e8, #6bb4ff);
+  border: 1px solid #89a9ff;
+  box-shadow: 0 0 12px rgba(80,120,255,0.7);
+  clip-path: polygon(28px 0%, calc(100% - 28px) 0%, 100% 50%, calc(100% - 28px) 100%, 28px 100%, 0% 50%);
+}
+
+.questionStyling {
+  color: #ffffff;
+  text-align: center;
+  font-size: 1.125rem; /* text-lg */
+  font-weight: 600;
+  margin: 1.25rem; /* m-5 */
+  padding: 1rem 2.5rem; /* py-4 px-10 */
+  background: linear-gradient(to right, #3754e8, #6bb4ff);
+  border: 1px solid #9cc2ff;
+  box-shadow: 0 0 18px rgba(90,140,255,0.75);
+  clip-path: polygon(40px 0%, calc(100% - 40px) 0%, 100% 50%, calc(100% - 40px) 100%, 40px 100%, 0% 50%);
+}
+
+.metaStyling {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem; /* gap-2 */
+  border-radius: 9999px; /* rounded-full */
+  border: 1px solid rgba(107,160,255,0.4); /* border-[#6ba0ff]/40 */
+  background: rgba(26,42,138,0.6); /* bg-[#1a2a8a]/60 */
+  padding: 0.375rem 1rem; /* py-1.5 px-4 */
+  font-size: 0.875rem; /* text-sm */
+  font-weight: 500;
+  color: #ffffff;
+  box-shadow: 0 0 10px rgba(50,90,255,0.4);
+}
