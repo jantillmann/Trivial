@@ -30,7 +30,7 @@ const Homepage = () => {
         </button> */}
         {questions.length > 0 ? (
           <Link className={questionStyling} to="/question/1">
-            Start the Quiz
+            Start the Quiz!
           </Link>
         ) : (
           <>We are collecting the data...</>
