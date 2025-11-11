@@ -57,6 +57,7 @@ const Question = () => {
   return (
     <div className="pagewrapper flex flex-col items-center justify-center bg-black p-10">
       <div className="questionwrapper m-5 flex w-[70%] flex-col items-center bg-black">
+        <h2 className="my-5 text-4xl text-white">{`Question: ${questionId}/${allquestions.length - 1}`}</h2>
         <div className="mb-3 flex gap-4">
           <div className="metaStyling">
             <svg
@@ -104,7 +105,7 @@ const Question = () => {
                   name={answer}
                   className="answerStyling"
                 >
-                  {answer}
+                  <p dangerouslySetInnerHTML={{ __html: answer }} />
                 </div>
               </Link>
             );

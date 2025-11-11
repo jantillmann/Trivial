@@ -10,7 +10,7 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const questions = useSelector((store) => store.questionSlice.questions);
-  const [difficulty, setDifficulty] = useState('any');
+  const [difficulty, setDifficulty] = useState('');
 
   const handleDifficultyChange = (event) => {
     setDifficulty(event.target.value);
