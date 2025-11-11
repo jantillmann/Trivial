@@ -18,7 +18,6 @@ const Question = () => {
           rightAnswer: actualquestion.correct_answer,
         })
       );
-
     } else {
       dispatch(
         add_question({
@@ -32,7 +31,6 @@ const Question = () => {
     }
   }
 
-
   const allquestions = useSelector((store) => store.questionSlice.questions);
 
   console.log(allquestions);
@@ -45,6 +43,16 @@ const Question = () => {
     actualquestion.correct_answer,
   ];
 
+  //Straight from the internet ^^
+  const shuffledAnswers = [...allanswers];
+
+  for (let i = shuffledAnswers.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [shuffledAnswers[i], shuffledAnswers[j]] = [
+      shuffledAnswers[j],
+      shuffledAnswers[i],
+    ];
+  }
 
   return (
     <div className="pagewrapper flex flex-col items-center justify-center bg-black p-10">
@@ -81,7 +89,7 @@ const Question = () => {
         </div>
 
         <div className="answers m-5 grid w-7/8 grid-cols-2 grid-rows-2 items-center gap-2 text-white">
-          {allanswers.map((answer) => {
+          {shuffledAnswers.map((answer) => {
             return (
               <Link
                 to={
@@ -101,11 +109,6 @@ const Question = () => {
               </Link>
             );
           })}
-
-          {/* <div className={answerStyling}>Frage 1</div>
-          <div className={answerStyling}>Frage 2</div>
-          <div className={answerStyling}>Frage 3</div>
-          <div className={answerStyling}>Frage 4</div> */}
         </div>
       </div>
     </div>

@@ -10,18 +10,22 @@ const Homepage = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
   const questions = useSelector((store) => store.questionSlice.questions);
+  const [difficulty, setDifficulty] = useState('any');
+
+  const handleDifficultyChange = (event) => {
+    setDifficulty(event.target.value);
+  };
 
   function clickHandler() {
-    fetch('https://opentdb.com/api.php?amount=5')
+    fetch(`https://opentdb.com/api.php?amount=7&difficulty=${difficulty}`)
       .then((response) => response.json())
       .then((data) => {
         dispatch(add_questions(data.results));
-        navigate('/question/0');
+        navigate('/question/1');
       })
       .catch(console.error);
   }
 
-  console.log(questions);
   return (
     <>
       <div className="flex flex-col items-center justify-center gap-5 bg-black p-40">
@@ -29,9 +33,14 @@ const Homepage = () => {
           Welcome to: Who Wants to Be a Millionaire?
         </div>
         <div className="selector text-white">
-          <form className="questionStyling">
+          <form className="questionStyling hover:cursor-pointer">
             <label for="difficulty">Choose the difficulty:</label>
-            <select id="difficulty" name="difficulties">
+            <select
+              className="hover:cursor-pointer"
+              id="difficulty"
+              name="difficulties"
+              onChange={handleDifficultyChange}
+            >
               <option value="any">Any</option>
               <option value="medium">Medium</option>
               <option value="hard">Hard</option>
@@ -40,7 +49,10 @@ const Homepage = () => {
           </form>
         </div>
 
-        <button className="questionStyling" onClick={() => clickHandler()}>
+        <button
+          className="questionStyling hover:cursor-pointer"
+          onClick={() => clickHandler()}
+        >
           Start the Quiz!
         </button>
       </div>
